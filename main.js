@@ -28,13 +28,8 @@ function getHumanChoice() {
 
 
 
-function playGame () {
-    humanScore = 0;
-    computerScore = 0;
-    // let humanSelection = getHumanChoice();
-    // let computerSelection = getComputerChoice();
 
-    function playRound (humanChoice, computerChoice){
+function playRound (humanChoice, computerChoice){
     // Computer wins if computer choose paper human choose rock
 
     if (computerChoice === "paper" && humanChoice === "rock"){
@@ -80,6 +75,14 @@ function playGame () {
    
 } 
 
+
+
+function playGame () {
+    humanScore = 0;
+    computerScore = 0;
+    
+
+
     for (i =0; i < 5; i++){
 
         let humanSelection = getHumanChoice();
@@ -96,12 +99,14 @@ function playGame () {
         console.log(`Game is tied at score of ${computerScore} to ${humanScore}`);
 
     }else {
-        
+
         console.log(`You lose! the game ${humanScore} to ${computerScore}`);
     }
 
 
 }
+
+console.log("Play the game for 5 rounds let's see who wins. You get one point for win and for tie both of you get 1 point each, Let's play");
 
 playGame();
 
