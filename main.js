@@ -1,9 +1,10 @@
 console.log(`Rock Paper Scissors Shoot! 
-    The game will go on for 5 rounds whoever reach 5 points first wins.
+    The game will go on for 5 rounds whoever have maximum  points after 5 rounds wins.
     You get 1 point for winning round.
     If you lose computer get 1 point,
     For Tie you get 1 point each:
     Let's Play: `);
+
 let humanScore = 0;
 let computerScore = 0;
 
@@ -27,55 +28,34 @@ function getHumanChoice() {
         paper
         or
         scissors`).toLowerCase();
-        
+
     return humanChoice;
 }
 
 
-
-
 function playRound (humanChoice, computerChoice){
     // Computer wins if computer choose paper human choose rock
-
-    if (computerChoice === "paper" && humanChoice === "rock"){
-        console.log(`You lose! Paper beats Rock`);
-
-        computerScore += 1;
-
-        return `You lose! ${computerChoice} beats ${humanChoice}`;
-
-    }else if (computerChoice === "rock" && humanChoice === "scissors"){
-
-        console.log("You lose! Rock beat Scissors!")
-
-        computerScore += 1;
-
-        return `You lose! ${computerChoice} beats ${humanChoice}`;
-
-    } else if (computerChoice === "scissors" && humanChoice === "paper") {
-
-        console.log("You lose! Scissors beats Paper")
-        computerScore += 1;
-
-        return `You lose! ${computerChoice} beats ${humanChoice}`;
-
-    } else if ( computerChoice === humanChoice){
-
-        console.log(`It's a Tie both of you chose ${computerChoice} and ${humanChoice}`);
-
-        computerScore += 1;
-
-        humanScore += 1;
-
-        return `It's a Tie! Both chose ${computerChoice}`;
-
+    
+    if (humanChoice === computerChoice) {
+        humanScore++;
+        computerScore++;
+        return `This round got Tied! You both chose player: ${humanChoice} and Computer: ${computerChoice}.
+        
+        Score: Player: ${humanScore} --- Computer: ${computerScore}`;
+    }else if ((humanChoice === 'rock' && computerChoice === 'scissors') 
+            || (humanChoice === 'paper' && computerChoice === 'rock') 
+            || (humanChoice === 'scissors' && computerChoice === 'paper')){
+                
+                humanScore++;
+                return `You won this round! You: ${humanChoice} beats Computer: ${computerChoice}.
+                
+                Score: Player: ${humanScore} --- Computer: ${computerScore}`;
     }else {
+                computerScore++;
 
-        console.log(`You wins! ${humanChoice} beats ${computerChoice} `);
-
-        humanScore += 1;
-
-        return `You win! ${humanChoice} beats ${computerChoice}`;
+                return `You lose this round! Computer: ${computerChoice} beats You: ${humanChoice}.
+                
+                Score: Player: ${humanScore} --- Computer: ${computerScore}`;
     }
    
 } 
@@ -83,39 +63,40 @@ function playRound (humanChoice, computerChoice){
 
 
 function playGame () {
-    humanScore = 0;
-    computerScore = 0;
-    
 
-
-    for (i =0; i < 5; i++){
+    for (i = 1; i <= 5; i++){
 
         let humanSelection = getHumanChoice();
         let computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
+        console.log(playRound(humanSelection, computerSelection));
     }
 
     if(humanScore > computerScore){
 
-        console.log(`You won the game ${humanScore} to ${computerScore}`);
+        console.log(`You won the game!Let's goo!
+            
+            Final Score: You: ${humanScore} --- Bot: ${computerScore}`);
 
     }else if(humanScore === computerScore) {
 
-        console.log(`Game is tied at score of ${computerScore} to ${humanScore}`);
+        console.log(`Game is Tied! Woahh soo close!
+            
+            Final Score: You: ${humanScore} --- Bot: ${computerScore}`);
 
     }else {
 
-        console.log(`You lose! the game ${humanScore} to ${computerScore}`);
+        console.log(`You lose! the game! Sad!!! 😭😭
+            
+            Final Score: You: ${humanScore} --- Bot: ${computerScore}`);
     }
+
+
+    console.log(`Thanks for playing!!`);
 
 
 }
 
-
-
 playGame();
 
 
-
-// playRound(humanSelection, computerSelection);
 
