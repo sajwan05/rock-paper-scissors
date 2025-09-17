@@ -73,7 +73,7 @@ function playGame () {
 
     if(humanScore > computerScore){
 
-        console.log(`You won the game!Let's goo!
+        console.log(`You won the game!Let's goo!🎉🎉
             
             Final Score: You: ${humanScore} --- Bot: ${computerScore}`);
 
