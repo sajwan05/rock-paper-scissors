@@ -1,4 +1,9 @@
-// console.log("hey");
+console.log(`Rock Paper Scissors Shoot! 
+    The game will go on for 5 rounds whoever reach 5 points first wins.
+    You get 1 point for winning round.
+    If you lose computer get 1 point,
+    For Tie you get 1 point each:
+    Let's Play: `);
 let humanScore = 0;
 let computerScore = 0;
 
@@ -106,7 +111,7 @@ function playGame () {
 
 }
 
-console.log("Play the game for 5 rounds let's see who wins. You get one point for win and for tie both of you get 1 point each, Let's play");
+
 
 playGame();
 
