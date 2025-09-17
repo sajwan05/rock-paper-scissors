@@ -8,22 +8,17 @@ let humanScore = 0;
 let computerScore = 0;
 
 function getComputerChoice () {
-    let computerChoice = (Math.floor(Math.random() * 3) + 1);
-    // console.log(computerChoice);
-    if (computerChoice === 1) {
-        let computeChoice = "rock";
-        return computeChoice;
-    } else if ( computerChoice === 2){
-        let computeChoice = "paper";
-        return computeChoice;
+    let computerChoice = Math.random();
+
+    if (computerChoice < 0.34) {
+        return `scissors`;
+    }else if (computerChoice < 0.67) {
+        return `rock`;
     }else {
-        let computeChoice = "scissors";
-        return computeChoice;
+        return `paper`;
     }
     
 }
-
-
 
 function getHumanChoice() {
     let humanChoice = prompt("Rock Paper scissors shoot! ").toLowerCase();
