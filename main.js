@@ -36,6 +36,17 @@ buttons.addEventListener("click", (event) => {
     botChoice = getComputerChoice();
 
     playRound(humanChoice, botChoice);
+
+    if (humanChoice === "rock"){
+        human.textContent = `${humanChoice}`;
+        bot.textContent = botChoice;
+    }else if (humanChoice === 'scissors'){
+        human.textContent = humanChoice;
+        bot.textContent = botChoice;
+    }else {
+        human.textContent = humanChoice;
+        bot.textContent = botChoice;
+    }
 });
 
 
@@ -45,7 +56,7 @@ function playRound (humanChoice, computerChoice){
     if (humanChoice === computerChoice) {
         humanScore++;
         computerScore++;
-        return `This round got Tied! You both chose player: ${humanChoice} and Computer: ${computerChoice}.
+        result.textContent =`This round got Tied!
         
         Score: Player: ${humanScore} --- Computer: ${computerScore}`;
     }else if ((humanChoice === 'rock' && computerChoice === 'scissors') 
@@ -53,15 +64,38 @@ function playRound (humanChoice, computerChoice){
             || (humanChoice === 'scissors' && computerChoice === 'paper')){
                 
                 humanScore++;
-                return `You won this round! You: ${humanChoice} beats Computer: ${computerChoice}.
+                result.textContent = `You won this round! 
                 
                 Score: Player: ${humanScore} --- Computer: ${computerScore}`;
     }else {
                 computerScore++;
 
-                return `You lose this round! Computer: ${computerChoice} beats You: ${humanChoice}.
-                
+                result.textContent = `You lose this round!
+
                 Score: Player: ${humanScore} --- Computer: ${computerScore}`;
+    }
+
+    if (humanScore === 5) {
+        result.textContent = "";
+        result.style.color = "darkgreen";
+        result.textContent = `Hurrah!! You won this game!
+        
+        FinalScore: You: ${humanScore} ---- Bot: ${computerScore}\n
+        Game Over!!\n
+        
+        Reload to restart!`;
+        humanScore = 0;
+        computerScore = 0;
+    }else if(computerScore === 5) {
+        result.textContent = "";
+        result.style.color = "red";
+        result.textContent = `Sad! You lost this game!
+        
+        Final Score: You: ${humanScore} ---- Bot: ${computerScore}\n
+        
+        Game Oer!!!\n
+        
+        Reload to restart!`;
     }
    
 } 
