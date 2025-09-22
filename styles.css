@@ -1,0 +1,52 @@
+html{
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+button {
+    display: inline-block;
+    padding: 0.7em 0.45em;
+    border-radius: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+div {
+    min-height: 125px;
+    border: 2px solid;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 50%;
+    margin: 0 auto;
+
+}
+
+.show {
+    display: flex;
+    justify-content: space-between;
+}
+
+.show > *{
+    flex: 1;
+}
+
+.buttons {
+    border: 0;
+}
+
+.buttons,
+.result {
+    line-height: 115px;
+}
+
